@@ -44,34 +44,3 @@ async def run(event_data):
             st.success('¡Gasto registrado exitosamente!')
         except Exception as e:
             st.error(f"Error al enviar el evento a Event Hubs: {e}")
-
-#EVENT_HUB_NAMESPACE = "app-gastos-dev-001"
-#EVENT_HUB_NAME = "event-appgastos-dev-001"
-#EVENT_HUB_SAS_KEY = "XbkxcX/c1NpoBE4902cO61j1wzeTh/FAO+AEhO69bH8="
-
-#async def run(event_data):
-#    # Create a producer client to send messages to the event hub.
-#    # Specify a credential that has correct role assigned to access
-#    # event hubs namespace and the event hub name.
-#    producer = EventHubProducerClient(
-#        fully_qualified_namespace=EVENT_HUB_FULLY_QUALIFIED_NAMESPACE,
-#        eventhub_name=EVENT_HUB_NAME,
-#        credential=credential,
-#        transport_type=TransportType.AmqpOverWebsocket
-#    )
-#    async with producer:
-#        # Create a batch.
-#        event_data_batch = await producer.create_batch()
-#
-#        # Add events to the batch.
-#        event_data_batch.add(EventData(event_data))
-#
-#
-#        # Send the batch of events to the event hub.
-#        await producer.send_batch(event_data_batch)
-#        st.success('¡Gasto registrado exitosamente!')
-#
-#        # Close credential when no longer needed.
-#        await credential.close()
-
-
