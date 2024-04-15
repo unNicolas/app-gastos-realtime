@@ -40,3 +40,5 @@ async def run(event_data):
             st.success('¡Gasto registrado exitosamente!')
         except Exception as e:
             st.error(f"Error al enviar el evento a Event Hubs: {e}")
+
+#Borre linea 50
