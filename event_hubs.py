@@ -10,10 +10,6 @@ from dotenv import load_dotenv
 # Carga las variables de entorno del archivo .env
 load_dotenv()
 
-#EVENT_HUB_FULLY_QUALIFIED_NAMESPACE = "app-gastos-dev-001"
-#EVENT_HUB_NAME = "event-appgastos-dev-001"
-
-
 EVENT_HUB_CONNECTION_STR = os.getenv("eventhubConSt")
 EVENT_HUB_NAME = os.getenv("eventhubName")
 
