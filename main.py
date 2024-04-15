@@ -3,6 +3,7 @@ import asyncio
 from datetime import datetime
 from event_hubs import run
 import logging  # Importa el módulo logging
+import pytz
 
 # Configura el nivel de registro para depuración
 logging.basicConfig(level=logging.DEBUG)
@@ -12,6 +13,9 @@ console.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 console.setFormatter(formatter)
 logging.getLogger('').addHandler(console)
+
+# Obtener la zona horaria de Argentina (UTC-3)
+timezone_ar = pytz.timezone('America/Argentina/Buenos_Aires')
 
 async def main():
     # Título del formulario
@@ -57,7 +61,8 @@ async def main():
         if fecha is None or importe is None:
             st.error('Falta completar un campo. Por favor, asegúrate de llenar todos los campos antes de guardar.')
         else:
-            fecha_carga = datetime.now()
+            now_utc = datetime.now(pytz.utc)
+            fecha_carga = now_utc.astimezone(timezone_ar)
             event_data = {
             "fecha": fecha.isoformat(),
             "importe": importe,

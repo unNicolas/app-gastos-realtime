@@ -7,3 +7,4 @@ azure-eventhub
 azure-identity
 aiohttp
 python-dotenv
+pytz
