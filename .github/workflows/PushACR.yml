@@ -24,6 +24,6 @@ jobs:
         ACR_PASSWORD: ${{ secrets.ACR_PASSWORD }}
         CURRENT_DATE: ${{ steps.set-date.outputs.date }}
       run: |
-        docker build -t $ACR_NAME.azurecr.io/appgastosRT:${CURRENT_DATE} .
+        docker build -t $ACR_NAME.azurecr.io/appgastosrealtime:${CURRENT_DATE} .
         echo $ACR_PASSWORD | docker login $ACR_NAME.azurecr.io -u $ACR_NAME --password-stdin
-        docker push $ACR_NAME.azurecr.io/appgastos:${CURRENT_DATE}
+        docker push $ACR_NAME.azurecr.io/appgastosrealtime:${CURRENT_DATE}
